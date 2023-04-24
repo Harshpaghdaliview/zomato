@@ -1,30 +1,57 @@
- .css-hip9hq-MuiPaper-root-MuiAppBar-root{
-background-color: transparent;
- 
- }
+.main {
+  background-image: url(../../Images/background.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 35rem;
+  max-height: 61rem;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  bottom: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
 
- .main{
-    background-image: url(../../Images/background.png);
-    /* height: 100vh;
-    width: 100%;
-    background-position: center; */
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: calc(100vh - 30rem);
-    min-height: 28rem;
-    max-height: 57rem;
-    width: 100%;
-    position: relative;
-    overflow: hidden;
- }
+.submain {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.text-head {
+  font-family: Okra, Helvetica, sans-serif;
+  color: white;
+}
 
- .submain{
-    background-image: url(../../Images/zomato.avif);
-    height: 20vh;
-    width: 100%;
-    background-repeat: no-repeat; 
-    background-size: 25rem;
-    height: 20vh;
-    width: 100%;
-    margin: 2rem 2rem 2rem 21re
- }
+.heading-text {
+  color: white;
+  display: flex;
+  justify-content: center;
+}
+.imageclass { 
+  width: 18rem;
+}
+   
+.cardd-1{
+   border-radius: 30px;
+   height: 17rem;
+   width: 35rem;
+}
+.cardd-2{
+   border-radius: 30px;
+   height: 17rem;
+   width: 35rem;
+}
+.card-section{
+   display: flex;
+   justify-content: space-around;
+   align-items: center;
+}
+.subheading{     
+   background: white;
+   border: 1px solid rgb(0 0 0 / 0%);
+   position: relative;
+   top: -5rem;
+}
