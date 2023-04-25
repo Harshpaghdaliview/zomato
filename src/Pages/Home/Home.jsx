@@ -84,17 +84,22 @@ const Home = () => {
       <div className="container">
         <div className="card-section">
           <div className="card-1">
-            <img className="cardd-1" src={img1} alt="" ></img>
+            <img className="cardd-1" src={img1} alt=""></img>
             <div className="subheading">
-              <p>Order Online</p>
-              <p>Stay Home and Order to Your Doorstep</p>
+              <b>
+                <p className="text-1">Order Online</p>
+              </b>
+              <p className="text-2">Stay Home and Order to Your Doorstep</p>
             </div>
           </div>
           <div className="card-2">
             <img className="cardd-2" src={img2} alt="" />
             <div className="subheading">
-              <p> Dining</p>
-              <p>View The City's Favourite dining venues</p>
+              <b>
+                <p className="text-1"> Dining</p>
+              </b>
+
+              <p className="text-2">View The City's Favourite dining venues</p>
             </div>
           </div>
         </div>
