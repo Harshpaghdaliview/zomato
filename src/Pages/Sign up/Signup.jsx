@@ -1,0 +1,176 @@
+import React from "react";
+import Navbar from "../../Components/Navbar/Navbar";
+import sideimg from "../../Images/3.avif";
+import "../Sign up/Signup.css";
+
+import Avatar from "@mui/material/Avatar";
+import Button from "@mui/material/Button";
+import CssBaseline from "@mui/material/CssBaseline";
+import TextField from "@mui/material/TextField";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import Checkbox from "@mui/material/Checkbox";
+import Link from "@mui/material/Link";
+import Grid from "@mui/material/Grid";
+import Box from "@mui/material/Box";
+import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
+import Typography from "@mui/material/Typography";
+import Container from "@mui/material/Container";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+
+// function Copyright(props) {
+//   return (
+//     <Typography
+//       variant="body2"
+//       color="text.secondary"
+//       align="center"
+//       {...props}
+//     >
+//       {"Copyright © "}
+//       <Link color="inherit" href="https://mui.com/">
+//         Your Website
+//       </Link>{" "}
+//       {new Date().getFullYear()}
+//       {"."}
+//     </Typography>
+//   );
+// }
+const theme = createTheme();
+const Signup = () => {
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const data = new FormData(event.currentTarget);
+    console.log({
+      email: data.get("email"),
+      password: data.get("password"),
+    });
+  };
+  return (
+    <>
+      <Navbar />
+      <div className="signup-main">
+        <div className="signupsubmain">
+          <ThemeProvider theme={theme}>
+            <Container component="main" maxWidth="xs">
+              <CssBaseline />
+              <Box
+                sx={{
+                  marginTop: 8,
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                }}
+              >
+                <br /> 
+                {/* <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
+                  <LockOutlinedIcon />
+                </Avatar> */}
+                <Typography component="h1" variant="h5">
+                <h1 className="Signupbutton">Sign Up</h1>
+                </Typography>
+                <Box
+                  component="form"
+                  noValidate
+                  onSubmit={handleSubmit}
+                  sx={{ mt: 3 }}
+                >
+                  <Grid container spacing={2}>
+                    <Grid item xs={12} sm={6}>
+                      <TextField
+                        autoComplete="given-name"
+                        name="firstName"
+                        required
+                        fullWidth
+                        id="firstName"
+                        label="First Name"
+                        autoFocus
+                      />
+                    </Grid>
+                    <Grid item xs={12} sm={6}>
+                      <TextField
+                        required
+                        fullWidth
+                        id="lastName"
+                        label="Last Name"
+                        name="lastName"
+                        autoComplete="family-name"
+                      />
+                    </Grid>
+                    <Grid item xs={12}>
+                      <TextField
+                        required
+                        fullWidth
+                        id="email"
+                        label="Email Address"
+                        name="email"
+                        autoComplete="off"
+                      />
+                    </Grid>
+                    <Grid item xs={12}>
+                      <TextField
+                        required
+                        fullWidth
+                        id="Phone"
+                        label="Phone Number"
+                        name="Phone Number"
+                        autoComplete="Phone"
+                      />
+                    </Grid>
+                    <Grid item xs={12}>
+                      <TextField
+                        required
+                        fullWidth
+                        name="password"
+                        label="Password"
+                        type="password"
+                        id="password"
+                        autoComplete="new-password"
+                      />
+                    </Grid>
+                    <Grid item xs={12}>
+                      <TextField
+                        required
+                        fullWidth
+                        name="Confirm password"
+                        label="Confirm Password"
+                        type="password"
+                        id="Confirm password"
+                        autoComplete="new-Confirmpassword"
+                      />
+                    </Grid>
+                    {/* <Grid item xs={12}>
+                      <FormControlLabel
+                        control={
+                          <Checkbox value="allowExtraEmails" color="primary" />
+                        }
+                        label="I want to receive inspiration, marketing promotions and updates via email."
+                      />
+                    </Grid> */}
+                  </Grid>
+                  <Button
+                //   color="dark"       
+                    type="submit"
+                    fullWidth
+                    variant="contained"
+                    sx={{ mt: 3, mb: 2 }}
+                  >
+                    Sign Up
+                  </Button>
+                  <Grid container justifyContent="center  ">
+                    <Grid item>Already have an account? &nbsp;
+                      <Link href="/Login" variant="body2">
+                         Sign in
+                      </Link>
+                    </Grid>
+                  </Grid>
+                </Box>
+              </Box>
+              {/* <Copyright sx={{ mt: 5 }} /> */}
+            </Container>
+          </ThemeProvider>
+        </div>
+      </div>
+    </>
+  );
+};
+
+export default Signup;

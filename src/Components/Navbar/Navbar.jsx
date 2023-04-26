@@ -10,8 +10,9 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
-
-const pages = ["Invester Relation", "Add Restaurant", "Login", "Sign Up"];
+import { useNavigate } from "react-router-dom";
+import logo from '../../Images/zomato.avif'
+const pages = [ "Login", "Sign Up"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 function ResponsiveAppBar() {
@@ -22,20 +23,22 @@ function ResponsiveAppBar() {
     setAnchorElNav(event.currentTarget);
   };
 
+  const history = useNavigate();
+
   const temp = (id) => {
+    // if (id == 0) {
+    //   invester();
+    //   return;
+    // }
+    // if (id == 1) {
+    //   addRes();
+    //   return;
+    // }
     if (id == 0) {
-      invester();
-      return;
-    }
-    if (id == 1) {
-      addRes();
-      return;
-    }
-    if (id == 2) {
       login();
       return;
     }
-    if (id == 3) {
+    if (id == 1) {
       signup();
       return;
     } else {
@@ -53,23 +56,24 @@ function ResponsiveAppBar() {
     console.log("add res");
   };
   const login = () => {
-    console.log("login");
+    history("/login")
   };
   const signup = () => {
-    console.log("signup");
+   history("/Signup")
   };
 
   return (
     <AppBar className="navbar-d">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
+          <img className="logoclass" src={logo} onClick={()=> history("/")} alt="" />
           <Typography
             variant="h6"
             noWrap
             component="a"
             href="/"
             sx={{
-              mr: 100,
+              mr: 145,
               display: { xs: "none", md: "flex" },
               fontFamily: "monospace",
               fontWeight: 700,
