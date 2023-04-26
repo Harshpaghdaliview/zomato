@@ -1,49 +1,98 @@
-import React from "react";
+import React, { useState } from "react";
 import Navbar from "../../Components/Navbar/Navbar";
-import sideimg from "../../Images/3.avif";
 import "../Sign up/Signup.css";
-
-import Avatar from "@mui/material/Avatar";
+// import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
-import FormControlLabel from "@mui/material/FormControlLabel";
+// import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
 import Link from "@mui/material/Link";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
-import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
+// import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import * as Yup from "yup";
 
-// function Copyright(props) {
-//   return (
-//     <Typography
-//       variant="body2"
-//       color="text.secondary"
-//       align="center"
-//       {...props}
-//     >
-//       {"Copyright © "}
-//       <Link color="inherit" href="https://mui.com/">
-//         Your Website
-//       </Link>{" "}
-//       {new Date().getFullYear()}
-//       {"."}
-//     </Typography>
-//   );
-// }
 const theme = createTheme();
 const Signup = () => {
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get("email"),
-      password: data.get("password"),
-    });
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    validationSchema
+      .validate(
+        {
+          fName: Fname,
+          lName: Lname,
+          email: Email,
+          phone: Phone,
+          password: Password,
+          CPassword: Confirmpassword,
+        },
+        { abortEarly: false }
+      )
+      .then(() => {
+        "";
+      })
+      .catch((err) => {
+        const errors = {};
+        err.inner.forEach((e) => {
+          errors[e.path] = e.message;
+        });
+        setErrors(errors);
+      });
   };
+  const [Fname, setFname] = useState(" ");
+  const [Lname, setLname] = useState(" ");
+  const [Email, setEmail] = useState(" ");
+  const [Phone, setPhone] = useState(" ");
+  const [Password, setPassword] = useState(" ");
+  const [Confirmpassword, setConfirmpassword] = useState(" ");
+  const [Errors, setErrors] = useState(" ");
+  const handleEmailChange = (e) => {
+    setEmail(e.taget.value);
+  };
+  const handleFnameChange = (e) => {
+    setFname(e.taget.value);
+  };
+  const handleLnameChange = (e) => {
+    setLname(e.taget.value);
+  };
+  const handlephoneChange = (e) => {
+    setPhone(e.taget.value);
+  };
+  const handlePassword = (e) => {
+    setPassword(e.taget.value);
+  };
+  const handleconfirmPassword = (e) => {
+    setConfirmpassword(e.taget.value);
+  };
+
+  const validationSchema = Yup.object().shape({
+    firstName: Yup.string().required("First name is required"),
+    lastName: Yup.string().required("Last name is required"),
+    phone: Yup.string()
+      .matches(/^\+?\d{10,}$/gm, "Please enter a valid phone number")
+      .required("Phone number is required"),
+    email: Yup.string()
+      .email("Please enter a valid email address")
+      .required("Email is required"),
+    password: Yup.string()
+
+      .required("Password is required")
+      .min(8, "Password is too short"),
+
+    // .matches(
+    //   /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/,
+    //   "Password must contain at least 8 characters, including one uppercase letter, one lowercase letter, and one number"
+    // )
+
+    confirmPassword: Yup.string()
+      .oneOf([Yup.ref("password"), null], "Passwords must match")
+      .required("Confirm password is required"),
+  });
+
   return (
     <>
       <Navbar />
@@ -60,12 +109,9 @@ const Signup = () => {
                   alignItems: "center",
                 }}
               >
-                <br /> 
-                {/* <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
-                  <LockOutlinedIcon />
-                </Avatar> */}
+                <br />
                 <Typography component="h1" variant="h5">
-                <h1 className="Signupbutton">Sign Up</h1>
+                  <h1 className="Signupbutton">Sign Up</h1>
                 </Typography>
                 <Box
                   component="form"
@@ -76,14 +122,16 @@ const Signup = () => {
                   <Grid container spacing={2}>
                     <Grid item xs={12} sm={6}>
                       <TextField
-                        autoComplete="given-name"
                         name="firstName"
                         required
                         fullWidth
                         id="firstName"
                         label="First Name"
-                        autoFocus
+                        onChange={(e) => handleFnameChange(e)}
                       />
+                      {Errors.firstName && (
+                        <div style={{ color: "red" }}>{Errors.firstName}</div>
+                      )}
                     </Grid>
                     <Grid item xs={12} sm={6}>
                       <TextField
@@ -92,8 +140,12 @@ const Signup = () => {
                         id="lastName"
                         label="Last Name"
                         name="lastName"
-                        autoComplete="family-name"
+                        onChange={(e) => handleLnameChange}
                       />
+
+                      {Errors.lastName && (
+                        <div style={{ color: "red" }}>{Errors.lastName}</div>
+                      )}
                     </Grid>
                     <Grid item xs={12}>
                       <TextField
@@ -103,7 +155,13 @@ const Signup = () => {
                         label="Email Address"
                         name="email"
                         autoComplete="off"
+                        onChange={(e) => handleEmailChange}
                       />
+
+                      {console.log(Errors.lastName)}
+                      {Errors.email && (
+                        <div style={{ color: "red" }}>{Errors.email}</div>
+                      )}
                     </Grid>
                     <Grid item xs={12}>
                       <TextField
@@ -113,7 +171,11 @@ const Signup = () => {
                         label="Phone Number"
                         name="Phone Number"
                         autoComplete="Phone"
+                        onChange={(e) => handlephoneChange}
                       />
+                      {Errors.phone && (
+                        <div style={{ color: "red" }}>{Errors.phone}</div>
+                      )}
                     </Grid>
                     <Grid item xs={12}>
                       <TextField
@@ -124,7 +186,12 @@ const Signup = () => {
                         type="password"
                         id="password"
                         autoComplete="new-password"
+                        onChange={(e) => handlePassword}
                       />
+
+                      {Errors.password && (
+                        <div style={{ color: "red" }}>{Errors.password}</div>
+                      )}
                     </Grid>
                     <Grid item xs={12}>
                       <TextField
@@ -135,19 +202,16 @@ const Signup = () => {
                         type="password"
                         id="Confirm password"
                         autoComplete="new-Confirmpassword"
+                        onChange={(e) => handleconfirmPassword}
                       />
+                      {Errors.confirmPassword && (
+                        <div style={{ color: "red" }}>
+                          {Errors.confirmPassword}
+                        </div>
+                      )}
                     </Grid>
-                    {/* <Grid item xs={12}>
-                      <FormControlLabel
-                        control={
-                          <Checkbox value="allowExtraEmails" color="primary" />
-                        }
-                        label="I want to receive inspiration, marketing promotions and updates via email."
-                      />
-                    </Grid> */}
                   </Grid>
                   <Button
-                //   color="dark"       
                     type="submit"
                     fullWidth
                     variant="contained"
@@ -156,15 +220,15 @@ const Signup = () => {
                     Sign Up
                   </Button>
                   <Grid container justifyContent="center  ">
-                    <Grid item>Already have an account? &nbsp;
+                    <Grid item>
+                      Already have an account? &nbsp;
                       <Link href="/Login" variant="body2">
-                         Sign in
+                        Sign in
                       </Link>
                     </Grid>
                   </Grid>
                 </Box>
               </Box>
-              {/* <Copyright sx={{ mt: 5 }} /> */}
             </Container>
           </ThemeProvider>
         </div>

@@ -11,13 +11,27 @@ import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
 import { useNavigate } from "react-router-dom";
-import logo from '../../Images/zomato.avif'
-const pages = [ "Login", "Sign Up"];
-const settings = ["Profile", "Account", "Dashboard", "Logout"];
+// import { useParams } from "react-router-dom";
+import logo from "../../Images/zomato.avif";
+import { useState } from "react";
+import { useEffect } from "react";
+const pages = ["Login", "Sign Up"];
+// const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 function ResponsiveAppBar() {
+  const [session, setSession] = useState(false);
+  const log = window.location.pathname;
+
+  useEffect(() => {
+     if (log == "/login") {
+    setSession(true);
+  }
+  }, [ ])
+  
+  
+
   const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
+  // const [anchorElUser, setAnchorElUser] = React.useState(null);
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -34,11 +48,12 @@ function ResponsiveAppBar() {
     //   addRes();
     //   return;
     // }
-    if (id == 0) {
+
+    if (id === 0) {
       login();
       return;
     }
-    if (id == 1) {
+    if (id === 1) {
       signup();
       return;
     } else {
@@ -49,24 +64,30 @@ function ResponsiveAppBar() {
     setAnchorElNav(null);
   };
 
-  const invester = () => {
-    console.log("invester");
-  };
-  const addRes = () => {
-    console.log("add res");
-  };
+  // const invester = () => {
+  //   console.log("invester");
+  // };
+  // const addRes = () => {
+  //   console.log("add res");
+  // };
+
   const login = () => {
-    history("/login")
+    history("/login");
   };
   const signup = () => {
-   history("/Signup")
+    history("/Signup");
   };
 
   return (
     <AppBar className="navbar-d">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <img className="logoclass" src={logo} onClick={()=> history("/")} alt="" />
+          <img
+            className="logoclass"
+            src={logo}
+            onClick={() => history("/")}
+            alt=""
+          />
           <Typography
             variant="h6"
             noWrap
@@ -141,7 +162,7 @@ function ResponsiveAppBar() {
               <Button
                 key={id}
                 onClick={() => temp(id)}
-                sx={{ my: 2, color: "white", display: "block" }}
+                sx={{ my: 2, color: session?('black'):('white'), display: "block" }}
               >
                 {page}
               </Button>
