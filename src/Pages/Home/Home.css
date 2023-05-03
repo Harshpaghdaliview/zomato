@@ -64,9 +64,11 @@
 .card-1 { 
   border-radius: 30px;
   height: 17rem;
+  cursor: pointer;
 }
 
 .card-2 {
+  cursor: pointer;
   border-radius: 30px;
   height: 17rem;
 }
@@ -83,6 +85,7 @@
   font-size: larger;
   font-family: emoji;
   margin: 10px 0px 0px 15px;
+  color: black;
 }
 .text-2 {
   font-size: larger;

@@ -15,41 +15,55 @@ import Navbar from "../../Components/Navbar/Navbar";
 import "../Log in/Login.css";
 import * as Yup from "yup";
 import { useState } from "react";
+import { useFormik } from "formik";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import { toast } from "react-toastify";
+import { useEffect } from "react";
+
+const loginSchema = Yup.object().shape({
+  email: Yup.string()
+    .email("*Email address is not valid*")
+    .required("*Email is required"),
+  password: Yup.string()
+    .required("*Password is required")
+    .min(8, "*Password must be atleast 8 letter long"),
+});
+const initialValues = {
+  email: "",
+  password: "",
+};
 
 export default function Login() {
-  const theme = createTheme();
-
-  const [Email, setEmail] = useState("");
-  const [Password, setPassword] = useState("");
+  const [result, setresult] = useState("");
   const [Errors, setErrors] = useState("");
-
-  const schema = Yup.object().shape({
-    email: Yup.string()
-      .email("Invalid email address")
-      .required("Email is required"),
-    password: Yup.string().required("Password is required"),
-  });
-
-  const handleEmailChange = (e) => {
-    setEmail(e.taget.value);
+  const getdata = async () => {
+    const res = await axios.get("http://localhost:8001/user");
+    setresult(res.data);
   };
-  const handlePassword = (e) => {
-    setPassword(e.taget.value);
-  };
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    schema
-      .validate({ email: Email, password: Password }, { abortEarly: false })
-      .then(() => {})
 
-      .catch((err) => {
-        const errors = {};
-        err.inner.forEach((e) => {
-          errors[e.path] = e.message;
+  useEffect(() => {
+    getdata();
+  }, []);
+
+  const theme = createTheme();
+  const history = useNavigate();
+  const { values, errors, touched, handleBlur, handleChange, handleSubmit } =
+    useFormik({
+      initialValues: initialValues,
+      validationSchema: loginSchema,
+      onSubmit: (values, action) => {
+        result.find((item) => {
+          if (
+            item.email === values.email &&
+            item.password === values.password
+          ) {
+            history("/Main");
+            return;
+          }
         });
-        setErrors(errors);
-      });
-  };
+      },
+    });
 
   return (
     <>
@@ -108,14 +122,14 @@ export default function Login() {
                   id="email"
                   label="Email Address"
                   name="email"
-                  autoComplete="off"
-                  autoFocus
-                  onChange={(e) => handleEmailChange}
+                  autoComplete="email"
+                  value={values?.email}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
                 />
-                {Errors.email && (
-                  <div style={{ color: "red" }}>{Errors.email}</div>
-                )}
-
+                {errors.email && touched.email ? (
+                  <span style={{ color: "red" }}>{errors.email}</span>
+                ) : null}
                 <TextField
                   margin="normal"
                   required
@@ -125,15 +139,13 @@ export default function Login() {
                   type="password"
                   id="password"
                   autoComplete="current-password"
-                  onChange={(e) => handlePassword}
+                  value={values?.password}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
                 />
-                {Errors.password && (
-                  <div style={{ color: "red" }}>{Errors.password}</div>
-                )}
-                <FormControlLabel
-                  control={<Checkbox value="remember" color="primary" />}
-                  label="Remember me"
-                />
+                {errors.password && touched.password ? (
+                  <span style={{ color: "red" }}>{errors.password}</span>
+                ) : null}
                 <Button
                   type="submit"
                   fullWidth
@@ -154,7 +166,7 @@ export default function Login() {
                       {"Sign Up"}
                     </Link>
                   </Grid>
-                </Grid> 
+                </Grid>
               </Box>
             </Box>
           </Grid>

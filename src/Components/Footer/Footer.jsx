@@ -1,19 +1,19 @@
 import React from "react";
-// import "./Footer.css";
-// import App from "../../assets/images/App-Store.png";
-// import Phone from "../../assets/images/Google-Play.png";
+import "../Footer/Footer.css";
+import App from "../../Images/AppS.webp";
+import Phone from "../../Images/Google play.webp";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 import FacebookIcon from "@mui/icons-material/Facebook";
-
+import zomatologo from "../../Images/Zomato black.avif";
 const Footer = () => {
   return (
     <div className="footer">
       <div className="top">
         <div className="top1">
-          <h2>Zomato</h2>
+          <img src={zomatologo} alt="" />
           <div className="lang">
             <select>
               <option value="India">India</option>
@@ -55,7 +55,7 @@ const Footer = () => {
             <h4>FOR RESTAURANTS</h4>
             <p>Patner with Us</p>
             <p>Apps For you</p>
-            <h4>For Enterprises</h4>
+            <p>For Enterprises</p>
             <p>Zomato for work</p>
           </div>
           <div className="bottomContent">
@@ -74,8 +74,8 @@ const Footer = () => {
               <YouTubeIcon />
               <FacebookIcon />
             </div>
-            {/* <img src={App} alt="app" />
-            <img src={Phone} alt="app" /> */}
+            <img src={App} alt="app" />
+            <img src={Phone} alt="app" />
           </div>
         </div>
       </div>
@@ -84,7 +84,7 @@ const Footer = () => {
         <p>
           By continuing past this page, you agree to our Terms of Service,
           Cookie Policy, Privacy Policy and Content Policies. All trademarks are
-          properties of their respective owners. 2008-2022 © Zomato™ Ltd. All
+          properties of their respective owners. 2008-2023 © Zomato™ Ltd. All
           rights reserved.
         </p>
       </div>

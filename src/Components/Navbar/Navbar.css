@@ -1,5 +1,6 @@
   .navbar-d{
     background-color: transparent !important ;
+    position: relative;
   }
 
   .logoclass{

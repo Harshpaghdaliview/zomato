@@ -5,10 +5,13 @@ import "../Home/Home.css";
 import img4 from "../../Images/zomato.avif";
 import InputBase from "@mui/material/InputBase";
 import SearchIcon from "@mui/icons-material/Search";
-import img1 from "../../Images/1.avif";
-import img2 from "../../Images/2.avif";
+import cardimage1 from "../../Images/1.avif";
+import cardimage2 from "../../Images/2.avif";
+import cardimage3 from "../../Images/Food-main.webp";
+import cardimage4 from "../../Images/3.avif";
 import Accordion from "../../Components/Accordion/Accordion";
 import Footer from "../../Components/Footer/Footer";
+import { useNavigate } from "react-router-dom";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -51,7 +54,12 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
     },
   },
 }));
+
 const Home = () => {
+  const history = useNavigate();
+  const handleorder = () => {
+    history("/Main");
+  };
   return (
     <>
       <Navbar />
@@ -85,8 +93,30 @@ const Home = () => {
       </div>{" "}
       <div className="container">
         <div className="card-section">
+          <div className="card-1" onClick={()=> handleorder()}>
+            <img className="cardd-1" src={cardimage1} alt=""></img>
+            <div className="subheading">
+              <b>
+                <p className="text-1">Order Online</p>
+              </b>
+              <p className="text-2">Stay Home and Order to Your Doorstep</p>
+            </div>
+          </div>
+          <div className="card-2" onClick={()=>handleorder()}>
+            <img className="cardd-2" src={cardimage2} alt="" />
+            <div className="subheading">
+              <b>
+                <p className="text-1"> Dining</p>
+              </b>
+              <p className="text-2">View The City's Favourite dining venues</p>
+            </div>
+          </div>
+        </div>
+        <br />
+        <br />
+        <div className="card-section">
           <div className="card-1">
-            <img className="cardd-1" src={img1} alt=""></img>
+            <img className="cardd-1" src={cardimage3} alt=""></img>
             <div className="subheading">
               <b>
                 <p className="text-1">Order Online</p>
@@ -95,12 +125,11 @@ const Home = () => {
             </div>
           </div>
           <div className="card-2">
-            <img className="cardd-2" src={img2} alt="" />
+            <img className="cardd-2" src={cardimage4} alt="" />
             <div className="subheading">
               <b>
                 <p className="text-1"> Dining</p>
               </b>
-
               <p className="text-2">View The City's Favourite dining venues</p>
             </div>
           </div>
@@ -118,7 +147,7 @@ const Home = () => {
         <Accordion />
       </div>
       <br />
-      {/* <Footer/> */}
+      <Footer />
     </>
   );
 };

@@ -10,28 +10,25 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
-import { useNavigate } from "react-router-dom";
-// import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom"; 
 import logo from "../../Images/zomato.avif";
 import { useState } from "react";
 import { useEffect } from "react";
-const pages = ["Login", "Sign Up"];
-// const settings = ["Profile", "Account", "Dashboard", "Logout"];
+const pages = ["Login", "Sign Up"]; 
 
 function ResponsiveAppBar() {
   const [session, setSession] = useState(false);
   const log = window.location.pathname;
 
   useEffect(() => {
-     if (log == "/login") {
-    setSession(true);
-  }
-  }, [ ])
-  
-  
+    if (log == "/login") {
+      setSession(true);
+    } else if (log == "/Signup") {
+      setSession(true);
+    }
+  }, []);
 
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
-  // const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const [anchorElNav, setAnchorElNav] = React.useState(null); 
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -40,14 +37,7 @@ function ResponsiveAppBar() {
   const history = useNavigate();
 
   const temp = (id) => {
-    // if (id == 0) {
-    //   invester();
-    //   return;
-    // }
-    // if (id == 1) {
-    //   addRes();
-    //   return;
-    // }
+    
 
     if (id === 0) {
       login();
@@ -62,15 +52,7 @@ function ResponsiveAppBar() {
   };
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
-  };
-
-  // const invester = () => {
-  //   console.log("invester");
-  // };
-  // const addRes = () => {
-  //   console.log("add res");
-  // };
-
+  }; 
   const login = () => {
     history("/login");
   };
@@ -79,7 +61,7 @@ function ResponsiveAppBar() {
   };
 
   return (
-    <AppBar className="navbar-d">
+    <AppBar position="absolute" className="navbar-d">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <img
@@ -162,7 +144,11 @@ function ResponsiveAppBar() {
               <Button
                 key={id}
                 onClick={() => temp(id)}
-                sx={{ my: 2, color: session?('black'):('white'), display: "block" }}
+                sx={{
+                  my: 2,
+                  color: session ? "black" : "white",
+                  display: "block",
+                }}
               >
                 {page}
               </Button>

@@ -1,0 +1,30 @@
+.card {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr)) !important ;
+  grid-gap: 10px !important;
+  grid-auto-rows: minmax(100px, auto) !important;
+  grid-auto-columns: minmax(50px, auto) !important;
+  border: none;
+}
+
+.card .css-1ri6ub7-MuiPaper-root-MuiCard-root {
+  width: 25rem !important;
+  border-radius: 15px;
+}
+
+.card .css-1ri6ub7-MuiPaper-root-MuiCard-root:hover {
+  box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0, 0, 0);
+}
+
+.editclass {
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: row;
+  visibility: hidden;
+  margin-bottom: -36px;
+  margin-right: -17px;
+}
+
+.css-1ri6ub7-MuiPaper-root-MuiCard-root:hover .editclass {
+  visibility: visible;
+}
