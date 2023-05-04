@@ -7,6 +7,8 @@ import InputBase from "@mui/material/InputBase";
 import SearchIcon from "@mui/icons-material/Search";
 import img1 from "../../Images/1.avif";
 import img2 from "../../Images/2.avif";
+import Accordion from "../../Components/Accordion/Accordion";
+import Footer from "../../Components/Footer/Footer";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -104,6 +106,19 @@ const Home = () => {
           </div>
         </div>
       </div>
+      <br />
+      <div className="simplecard">
+        <div className="card-a1"></div>
+        <div className="card-a2"></div>
+        <div className="card-a3"></div>
+        <div className="card-a4"></div>
+      </div>
+      <br />
+      <div className="container Accordionclass">
+        <Accordion />
+      </div>
+      <br />
+      {/* <Footer/> */}
     </>
   );
 };
