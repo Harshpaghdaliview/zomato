@@ -21,19 +21,6 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import { useEffect } from "react";
 
-const loginSchema = Yup.object().shape({
-  email: Yup.string()
-    .email("*Email address is not valid*")
-    .required("*Email is required"),
-  password: Yup.string()
-    .required("*Password is required")
-    .min(8, "*Password must be atleast 8 letter long"),
-});
-const initialValues = {
-  email: "",
-  password: "",
-};
-
 export default function Login() {
   const [result, setresult] = useState("");
   const [Errors, setErrors] = useState("");
@@ -48,6 +35,28 @@ export default function Login() {
 
   const theme = createTheme();
   const history = useNavigate();
+
+  let checkpass;
+
+  const loginSchema = Yup.object().shape({
+    email: Yup.string()
+      .email("*Email address is not valid*")
+      .required("*Email is required"),
+    password: Yup.string().test("match", "Password is wrong", function (value) {
+      let current_password;
+      result.find((user) => {
+        if (user.password === value) {
+          current_password = user.password;
+        }
+      });
+      return value === current_password;
+    }),
+  });
+  const initialValues = {
+    email: "",
+    password: "",
+  };
+
   const { values, errors, touched, handleBlur, handleChange, handleSubmit } =
     useFormik({
       initialValues: initialValues,
@@ -58,6 +67,7 @@ export default function Login() {
             item.email === values.email &&
             item.password === values.password
           ) {
+            localStorage.setItem("email", values.email);
             history("/Main");
             return;
           }

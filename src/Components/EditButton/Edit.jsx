@@ -6,10 +6,12 @@ import MoreVertIcon from "@mui/icons-material/MoreVert";
 import axios from "axios";
 import { useEffect } from "react";
 import { useState } from "react";
+import Confirm from "../Delete Confirmation/Delete";
+import BasicModal from "../Update/Update";
 
-export default function Edit() {
+export default function Edit({ item, id, apicall }) {
   const [anchorEl, setAnchorEl] = React.useState(null);
-  const [result, setresult] = useState()
+  const [result, setresult] = useState();
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -17,18 +19,10 @@ export default function Edit() {
   const handleClose = () => {
     setAnchorEl(null);
   };
-
-  const handleDelete = async (id) => {
-    await axios.delete(`http://localhost:8000/meals/${id}`);
-  };
-
-  const apicall =async()=>{
-     const food = await axios.get("http://localhost:8000/meals");
-     setresult(food.data)
-  }
-useEffect(() => {
-apicall();
-}, [])
+ 
+  useEffect(() => {
+    apicall();
+  }, []);
 
   const handleUpdate = () => {};
 
@@ -52,8 +46,12 @@ apicall();
           "aria-labelledby": "basic-button",
         }}
       >
-        <MenuItem onClick={handleUpdate}>Update</MenuItem>
-        <MenuItem onClick={()=> handleDelete()}>delete</MenuItem>
+        <MenuItem onClick={handleUpdate}>
+          <BasicModal item={item} id={id}/>
+        </MenuItem>
+        <MenuItem>
+          <Confirm id={id} apicall={apicall} />{" "}
+        </MenuItem>
       </Menu>
     </div>
   );

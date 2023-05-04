@@ -55,10 +55,15 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
+const isloggedin = !!localStorage.getItem("email");
+
 const Home = () => {
   const history = useNavigate();
   const handleorder = () => {
-    history("/Main");
+   {
+     isloggedin?(history("/Main")):(history("/login"))
+   }
+   
   };
   return (
     <>

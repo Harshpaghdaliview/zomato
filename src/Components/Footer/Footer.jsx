@@ -8,6 +8,19 @@ import TwitterIcon from "@mui/icons-material/Twitter";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import zomatologo from "../../Images/Zomato black.avif";
+
+const city = [
+  "India",
+  "Australia",
+  "London",
+  "America",
+  "France",
+  "Brazil",
+  "England",
+  "South Africa",
+  "Rusia",
+];
+
 const Footer = () => {
   return (
     <div className="footer">
@@ -16,15 +29,9 @@ const Footer = () => {
           <img src={zomatologo} alt="" />
           <div className="lang">
             <select>
-              <option value="India">India</option>
-              <option value="Australia">Australia</option>
-              <option value="London">London</option>
-              <option value="America">America</option>
-              <option value="France">France</option>
-              <option value="Brazil">Brazil</option>
-              <option value="England">England</option>
-              <option value="South Africa">South Africa</option>
-              <option value="Rusia">Rusia</option>
+              {city.map((num) => {
+                return <option value={num}>{num}</option>;
+              })}
             </select>
             <select>
               <option value="English">English</option>

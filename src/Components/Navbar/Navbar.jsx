@@ -10,16 +10,17 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
-import { useNavigate } from "react-router-dom"; 
+import { useNavigate } from "react-router-dom";
 import logo from "../../Images/zomato.avif";
 import { useState } from "react";
 import { useEffect } from "react";
-const pages = ["Login", "Sign Up"]; 
+const pages = ["Login", "Sign Up"];
+const pages2 = "Logout";
 
 function ResponsiveAppBar() {
+  const isloggedin = !!localStorage.getItem("email");
   const [session, setSession] = useState(false);
-  const log = window.location.pathname;
-
+  const log = window.location.pathname; 
   useEffect(() => {
     if (log == "/login") {
       setSession(true);
@@ -27,18 +28,12 @@ function ResponsiveAppBar() {
       setSession(true);
     }
   }, []);
-
-  const [anchorElNav, setAnchorElNav] = React.useState(null); 
-
+  const [anchorElNav, setAnchorElNav] = React.useState(null);
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
-
   const history = useNavigate();
-
   const temp = (id) => {
-    
-
     if (id === 0) {
       login();
       return;
@@ -52,12 +47,18 @@ function ResponsiveAppBar() {
   };
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
-  }; 
+  };
   const login = () => {
     history("/login");
   };
+
   const signup = () => {
     history("/Signup");
+  };
+
+  const logout = () => {
+    localStorage.clear();
+    history("/");
   };
 
   return (
@@ -115,11 +116,17 @@ function ResponsiveAppBar() {
                 display: { xs: "block", md: "none" },
               }}
             >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="right">{page}</Typography>
+              {isloggedin ? (
+                <MenuItem key={pages2} onClick={handleCloseNavMenu}> 
+                  <Typography textAlign="right">{pages2}</Typography>
                 </MenuItem>
-              ))}
+              ) : (
+                pages.map((page) => (
+                  <MenuItem key={page} onClick={handleCloseNavMenu}>
+                    <Typography textAlign="right">{page}</Typography>
+                  </MenuItem>
+                ))
+              )}
             </Menu>
           </Box>
 
@@ -140,19 +147,32 @@ function ResponsiveAppBar() {
             }}
           ></Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-            {pages.map((page, id) => (
+            {isloggedin ? (
               <Button
-                key={id}
-                onClick={() => temp(id)}
+                onClick={() => logout()}
                 sx={{
                   my: 2,
                   color: session ? "black" : "white",
                   display: "block",
                 }}
               >
-                {page}
+                {pages2}
               </Button>
-            ))}
+            ) : (
+              pages.map((page, id) => (
+                <Button
+                  key={id}
+                  onClick={() => temp(id)}
+                  sx={{
+                    my: 2,
+                    color: session ? "black" : "white",
+                    display: "block",
+                  }}
+                >
+                  {page}
+                </Button>
+              ))
+            )}
           </Box>
         </Toolbar>
       </Container>

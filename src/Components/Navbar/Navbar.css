@@ -1,9 +1,13 @@
-  .navbar-d{
-    background-color: transparent !important ;
-    position: relative;
-  }
+.navbar-d {
+  background-color: transparent !important ;
+  position: relative;
+}
 
-  .logoclass{
-    height: 1rem; 
-    cursor: pointer;
-  }
+.logoclass {
+  height: 1rem;
+  cursor: pointer;
+}
+
+.css-r6ewbb-MuiToolbar-root {
+  margin-left: 85px !important;
+}
