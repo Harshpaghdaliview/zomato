@@ -15,41 +15,65 @@ import Navbar from "../../Components/Navbar/Navbar";
 import "../Log in/Login.css";
 import * as Yup from "yup";
 import { useState } from "react";
+import { useFormik } from "formik";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import { toast } from "react-toastify";
+import { useEffect } from "react";
 
 export default function Login() {
-  const theme = createTheme();
-
-  const [Email, setEmail] = useState("");
-  const [Password, setPassword] = useState("");
+  const [result, setresult] = useState("");
   const [Errors, setErrors] = useState("");
+  const getdata = async () => {
+    const res = await axios.get("http://localhost:8001/user");
+    setresult(res.data);
+  };
 
-  const schema = Yup.object().shape({
+  useEffect(() => {
+    getdata();
+  }, []);
+
+  const theme = createTheme();
+  const history = useNavigate();
+
+  let checkpass;
+
+  const loginSchema = Yup.object().shape({
     email: Yup.string()
-      .email("Invalid email address")
-      .required("Email is required"),
-    password: Yup.string().required("Password is required"),
-  });
-
-  const handleEmailChange = (e) => {
-    setEmail(e.taget.value);
-  };
-  const handlePassword = (e) => {
-    setPassword(e.taget.value);
-  };
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    schema
-      .validate({ email: Email, password: Password }, { abortEarly: false })
-      .then(() => {})
-
-      .catch((err) => {
-        const errors = {};
-        err.inner.forEach((e) => {
-          errors[e.path] = e.message;
-        });
-        setErrors(errors);
+      .email("*Email address is not valid*")
+      .required("*Email is required"),
+    password: Yup.string().test("match", "Password is wrong", function (value) {
+      let current_password;
+      result.find((user) => {
+        if (user.password === value) {
+          current_password = user.password;
+        }
       });
+      return value === current_password;
+    }),
+  });
+  const initialValues = {
+    email: "",
+    password: "",
   };
+
+  const { values, errors, touched, handleBlur, handleChange, handleSubmit } =
+    useFormik({
+      initialValues: initialValues,
+      validationSchema: loginSchema,
+      onSubmit: (values, action) => {
+        result.find((item) => {
+          if (
+            item.email === values.email &&
+            item.password === values.password
+          ) {
+            localStorage.setItem("email", values.email);
+            history("/Main");
+            return;
+          }
+        });
+      },
+    });
 
   return (
     <>
@@ -108,14 +132,14 @@ export default function Login() {
                   id="email"
                   label="Email Address"
                   name="email"
-                  autoComplete="off"
-                  autoFocus
-                  onChange={(e) => handleEmailChange}
+                  autoComplete="email"
+                  value={values?.email}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
                 />
-                {Errors.email && (
-                  <div style={{ color: "red" }}>{Errors.email}</div>
-                )}
-
+                {errors.email && touched.email ? (
+                  <span style={{ color: "red" }}>{errors.email}</span>
+                ) : null}
                 <TextField
                   margin="normal"
                   required
@@ -125,15 +149,13 @@ export default function Login() {
                   type="password"
                   id="password"
                   autoComplete="current-password"
-                  onChange={(e) => handlePassword}
+                  value={values?.password}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
                 />
-                {Errors.password && (
-                  <div style={{ color: "red" }}>{Errors.password}</div>
-                )}
-                <FormControlLabel
-                  control={<Checkbox value="remember" color="primary" />}
-                  label="Remember me"
-                />
+                {errors.password && touched.password ? (
+                  <span style={{ color: "red" }}>{errors.password}</span>
+                ) : null}
                 <Button
                   type="submit"
                   fullWidth
@@ -154,7 +176,7 @@ export default function Login() {
                       {"Sign Up"}
                     </Link>
                   </Grid>
-                </Grid> 
+                </Grid>
               </Box>
             </Box>
           </Grid>

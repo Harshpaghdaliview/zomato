@@ -1,0 +1,49 @@
+{
+  "user": [
+    {
+      "firstName": "harsh",
+      "lastName": "patel",
+      "email": "harsh.paghdal@iviewlabs.net",
+      "phone": "9054849442",
+      "password": "harsh.paghdal@iviewlabs.net",
+      "confirmPassword": "harsh.paghdal@iviewlabs.net",
+      "id": 1
+    },
+    {
+      "firstName": "sdasdasdasdada",
+      "lastName": "asdasda",
+      "email": "sdasdasdasda@gmail.com",
+      "phone": "9054849442",
+      "password": "   console.log(values.firstName)",
+      "confirmPassword": "   console.log(values.firstName)",
+      "id": 2
+    },
+    {
+      "firstName": "harsh",
+      "lastName": "sa",
+      "email": "h@gmail.com",
+      "phone": "9054849442",
+      "password": "zxcvbnmzxcvbnm",
+      "confirmPassword": "zxcvbnmzxcvbnm",
+      "id": 3
+    },
+    {
+      "firstName": "harsh",
+      "lastName": "Patel",
+      "email": "aaa@gmail.com",
+      "phone": "1234656484",
+      "password": "qazwsxedc",
+      "confirmPassword": "qazwsxedc",
+      "id": 4
+    },
+    {
+      "firstName": "dasdasdadsasd",
+      "lastName": "asdasdasasdasdads",
+      "email": "asdasdasdasdadsasd@gmail.com",
+      "phone": "7987978979",
+      "password": "qwertyuiop",
+      "confirmPassword": "qwertyuiop",
+      "id": 5
+    }
+  ]
+}

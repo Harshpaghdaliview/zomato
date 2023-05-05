@@ -1,0 +1,92 @@
+/* @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap");
+
+@mixin mobile {
+  @media screen and (max-width: 480px) {
+    @content;
+  }
+}
+@mixin tablet {
+  @media screen and (min-width: 480px) and (max-width: 768px) {
+    @content;
+  }
+}
+@mixin laptop {
+  @media screen and (min-width: 1024px) {
+    @content;
+  }
+} */
+
+.footer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 50px 200px;
+  background-color: whitesmoke;
+}
+
+.top {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.top1 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.lang {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.bottom1 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+.bottomContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+h4 {
+  font-size: 18px;
+  font-weight: normal;
+  letter-spacing: 0.1rem;
+}
+
+p {
+  color: gray;
+  text-transform: capitalize;
+}
+
+.links {
+  display: flex;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.bottom p {
+  text-align: start;
+  color: gray;
+  font-size: 14px;
+}
+@media only screen and (max-width: 769px) {
+  .footer {
+    display: grid;
+    padding: 30px;
+  }
+}
+
+
+
+@media only screen and (max-width: 321px) { 
+  .footer {
+    display: grid;
+    padding: 30px;
+  }
+
+}

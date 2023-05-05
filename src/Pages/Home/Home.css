@@ -64,9 +64,11 @@
 .card-1 { 
   border-radius: 30px;
   height: 17rem;
+  cursor: pointer;
 }
 
 .card-2 {
+  cursor: pointer;
   border-radius: 30px;
   height: 17rem;
 }
@@ -83,9 +85,39 @@
   font-size: larger;
   font-family: emoji;
   margin: 10px 0px 0px 15px;
+  color: black;
 }
 .text-2 {
   font-size: larger;
   font-family: inherit; 
   margin: 0px 0px 0px 15px;
+}
+
+
+@media only screen and (max-width: 769px) {
+  .card-section {
+    display: flex !important;
+    justify-content: space-around!important;
+    align-items: center!important;
+    flex-direction: column!important;
+    margin-bottom: 2rem
+}
+
+.card-1{
+  margin-bottom: 4rem;
+}
+}
+
+@media only screen and (max-width: 1025px) { 
+  .card-section {
+    display: flex !important;
+    justify-content: space-around!important;
+    align-items: center!important;
+    flex-direction: column!important;
+    margin-bottom: 2rem
+}
+
+.card-1{
+  margin-bottom: 4rem;
+} 
 }

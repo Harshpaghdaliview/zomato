@@ -1,0 +1,228 @@
+{
+    "meals": [
+      {
+        "title": "Baked salmon with fennel & tomatoes",
+        "image": "https://www.themealdb.com/images/media/meals/1548772327.jpg",
+        "rating": "5",
+        "price": "200",
+        "description": "Lorem, ipsum dolor sit amet consectetur adipisicing laudantium, sequi alias non corporis nostrum itaque sunt inciduntquas cum suscipit deleniti quae dolorem et magni! Debitis.",
+        "id": 1
+      },
+      {
+        "title": "Cajun spiced fish tacos",
+        "image": "https://www.themealdb.com/images/media/meals/uvuyxu1503067369.jpg",
+        "rating": "4",
+        "price": "250",
+        "description": "Lorem, ipsum dolor sit amet consectetur adipisicing laudantium, sequi alias non corporis nostrum itaque sunt inciduntquas cum suscipit deleniti quae dolorem et magni! Debitis.",
+        "id": 2
+      },
+      {
+        "title": "Escovitch Fish",
+        "image": "https://www.themealdb.com/images/media/meals/1520084413.jpg",
+        "rating": "4",
+        "price": "300",
+        "description": "Lorem, ipsum dolor sit amet consectetur adipisicing laudantium, sequi alias non corporis nostrum itaque sunt inciduntquas cum suscipit deleniti quae dolorem et magni! Debitis.",
+        "id": 3
+      },
+      {
+        "title": "Fish fofos",
+        "image": "https://www.themealdb.com/images/media/meals/a15wsa1614349126.jpg",
+        "rating": "3.5",
+        "price": "200",
+        "description": "Lorem, ipsum dolor sit amet consectetur adipisicing laudantium, sequi alias non corporis nostrum itaque sunt inciduntquas cum suscipit deleniti quae dolorem et magni! Debitis.",
+        "id": 4
+      },
+      {
+        "title": "Fish pie",
+        "image": "https://www.themealdb.com/images/media/meals/ysxwuq1487323065.jpg",
+        "rating": "4",
+        "price": "130",
+        "description": "Lorem, ipsum dolor sit amet consectetur adipisicing laudantium, sequi alias non corporis nostrum itaque sunt inciduntquas cum suscipit deleniti quae dolorem et magni! Debitis.",
+        "id": 5
+      },
+      {
+        "title": "Fish Stew with Rouille",
+        "image": "https://www.themealdb.com/images/media/meals/vptqpw1511798500.jpg",
+        "rating": "2",
+        "price": "199",
+        "description": "Lorem, ipsum dolor sit amet consectetur adipisicing laudantium, sequi alias non corporis nostrum itaque sunt inciduntquas cum suscipit deleniti quae dolorem et magni! Debitis.",
+        "id": 6
+      },
+      {
+        "title": "Garides Saganaki",
+        "image": "https://www.themealdb.com/images/media/meals/wuvryu1468232995.jpg",
+        "rating": "4",
+        "price": "450",
+        "description": "Lorem, ipsum dolor sit amet consectetur adipisicing laudantium, sequi alias non corporis nostrum itaque sunt inciduntquas cum suscipit deleniti quae dolorem et magni! Debitis.",
+        "id": 7
+      },
+      {
+        "title": "Grilled Portuguese sardines",
+        "image": "https://www.themealdb.com/images/media/meals/lpd4wy1614347943.jpg",
+        "rating": "4",
+        "price": "350",
+        "description": "Lorem, ipsum dolor sit amet consectetur adipisicing laudantium, sequi alias non corporis nostrum itaque sunt inciduntquas cum suscipit deleniti quae dolorem et magni! Debitis.",
+        "id": 8
+      },
+      {
+        "title": "Honey Teriyaki Salmon",
+        "image": "https://www.themealdb.com/images/media/meals/xxyupu1468262513.jpg",
+        "rating": "4",
+        "price": "99",
+        "description": "Lorem, ipsum dolor sit amet consectetur adipisicing laudantium, sequi alias non corporis nostrum itaque sunt inciduntquas cum suscipit deleniti quae dolorem et magni! Debitis.",
+        "id": 9
+      },
+      {
+        "title": "Kedgeree",
+        "image": "https://www.themealdb.com/images/media/meals/utxqpt1511639216.jpg",
+        "rating": "1",
+        "price": "356",
+        "description": "Lorem, ipsum dolor sit amet consectetur adipisicing laudantium, sequi alias non corporis nostrum itaque sunt inciduntquas cum suscipit deleniti quae dolorem et magni! Debitis.",
+        "id": 10
+      },
+      {
+        "title": "Kung Po Prawns",
+        "image": "https://www.themealdb.com/images/media/meals/1525873040.jpg",
+        "rating": "5",
+        "price": "399",
+        "description": "Lorem, ipsum dolor sit amet consectetur adipisicing laudantium, sequi alias non corporis nostrum itaque sunt inciduntquas cum suscipit deleniti quae dolorem et magni! Debitis.",
+        "id": 11
+      },
+      {
+        "title": "Laksa King Prawn Noodles",
+        "image": "https://www.themealdb.com/images/media/meals/rvypwy1503069308.jpg",
+        "rating": "2",
+        "price": "87",
+        "description": "Lorem, ipsum dolor sit amet consectetur adipisicing laudantium, sequi alias non corporis nostrum itaque sunt inciduntquas cum suscipit deleniti quae dolorem et magni! Debitis.",
+        "id": 12
+      },
+      {
+        "title": "Mediterranean Pasta Salad",
+        "image": "https://www.themealdb.com/images/media/meals/wvqpwt1468339226.jpg",
+        "rating": "3",
+        "price": "80",
+        "description": "Lorem, ipsum dolor sit amet consectetur adipisicing laudantium, sequi alias non corporis nostrum itaque sunt inciduntquas cum suscipit deleniti quae dolorem et magni! Debitis.",
+        "id": 13
+      },
+      {
+        "title": "Mee goreng mamak",
+        "image": "https://www.themealdb.com/images/media/meals/xquakq1619787532.jpg",
+        "rating": "4",
+        "price": "240",
+        "description": "Lorem, ipsum dolor sit amet consectetur adipisicing laudantium, sequi alias non corporis nostrum itaque sunt inciduntquas cum suscipit deleniti quae dolorem et magni! Debitis.",
+        "id": 14
+      },
+      {
+        "title": "Nasi lemak",
+        "image": "https://www.themealdb.com/images/media/meals/wai9bw1619788844.jpg",
+        "rating": "4",
+        "price": "120",
+        "description": "Lorem, ipsum dolor sit amet consectetur adipisicing laudantium, sequi alias non corporis nostrum itaque sunt inciduntquas cum suscipit deleniti quae dolorem et magni! Debitis.",
+        "id": 15
+      },
+      {
+        "title": "Portuguese fish stew (Caldeirada de peixe)",
+        "image": "https://www.themealdb.com/images/media/meals/do7zps1614349775.jpg",
+        "rating": "4",
+        "price": "90",
+        "description": "Lorem, ipsum dolor sit amet consectetur adipisicing laudantium, sequi alias non corporis nostrum itaque sunt inciduntquas cum suscipit deleniti quae dolorem et magni! Debitis.",
+        "id": 16
+      },
+      {
+        "title": "Recheado Masala Fish",
+        "image": "https://www.themealdb.com/images/media/meals/uwxusv1487344500.jpg",
+        "rating": "5",
+        "price": "110",
+        "description": "Lorem, ipsum dolor sit amet consectetur adipisicing laudantium, sequi alias non corporis nostrum itaque sunt inciduntquas cum suscipit deleniti quae dolorem et magni! Debitis.",
+        "id": 17
+      },
+      {
+        "title": "Salmon Avocado Salad",
+        "image": "https://www.themealdb.com/images/media/meals/1549542994.jpg",
+        "rating": "4",
+        "price": "330",
+        "description": "Lorem, ipsum dolor sit amet consectetur adipisicing laudantium, sequi alias non corporis nostrum itaque sunt inciduntquas cum suscipit deleniti quae dolorem et magni! Debitis.",
+        "id": 18
+      },
+      {
+        "title": "Salmon Prawn Risotto",
+        "image": "https://www.themealdb.com/images/media/meals/xxrxux1503070723.jpg",
+        "rating": "5",
+        "price": "555",
+        "description": "Lorem, ipsum dolor sit amet consectetur adipisicing laudantium, sequi alias non corporis nostrum itaque sunt inciduntquas cum suscipit deleniti quae dolorem et magni! Debitis.",
+        "id": 19
+      },
+      {
+        "title": "Saltfish and Ackee",
+        "image": "https://www.themealdb.com/images/media/meals/vytypy1511883765.jpg",
+        "rating": "4.5",
+        "price": "400",
+        "description": "Lorem, ipsum dolor sit amet consectetur adipisicing laudantium, sequi alias non corporis nostrum itaque sunt inciduntquas cum suscipit deleniti quae dolorem et magni! Debitis.",
+        "id": 20
+      },
+      {
+        "title": "Seafood fideuà",
+        "image": "https://www.themealdb.com/images/media/meals/wqqvyq1511179730.jpg",
+        "rating": "4",
+        "price": "158",
+        "description": "Lorem, ipsum dolor sit amet consectetur adipisicing laudantium, sequi alias non corporis nostrum itaque sunt inciduntquas cum suscipit deleniti quae dolorem et magni! Debitis.",
+        "id": 21
+      },
+      {
+        "title": "Shrimp Chow Fun",
+        "image": "https://www.themealdb.com/images/media/meals/1529445434.jpg",
+        "rating": "1",
+        "price": "380",
+        "description": "Lorem, ipsum dolor sit amet consectetur adipisicing laudantium, sequi alias non corporis nostrum itaque sunt inciduntquas cum suscipit deleniti quae dolorem et magni! Debitis.",
+        "id": 22
+      },
+      {
+        "title": "Sledz w Oleju (Polish Herrings)",
+        "image": "https://www.themealdb.com/images/media/meals/7ttta31593350374.jpg",
+        "rating": "3",
+        "price": "300",
+        "description": "Lorem, ipsum dolor sit amet consectetur adipisicing laudantium, sequi alias non corporis nostrum itaque sunt inciduntquas cum suscipit deleniti quae dolorem et magni! Debitis.",
+        "id": 23
+      },
+      {
+        "title": "Spring onion and prawn empanadas",
+        "image": "https://www.themealdb.com/images/media/meals/1c5oso1614347493.jpg",
+        "rating": "4",
+        "price": "333",
+        "description": "Lorem, ipsum dolor sit amet consectetur adipisicing laudantium, sequi alias non corporis nostrum itaque sunt inciduntquas cum suscipit deleniti quae dolorem et magni! Debitis.",
+        "id": 24
+      },
+      {
+        "title": "Sushi",
+        "image": "https://www.themealdb.com/images/media/meals/g046bb1663960946.jpg",
+        "rating": "4.5",
+        "price": "220",
+        "description": "Lorem, ipsum dolor sit amet consectetur adipisicing laudantium, sequi alias non corporis nostrum itaque sunt inciduntquas cum suscipit deleniti quae dolorem et magni! Debitis.",
+        "id": 25
+      },
+      {
+        "title": "Three Fish Pie",
+        "image": "https://www.themealdb.com/images/media/meals/spswqs1511558697.jpg",
+        "rating": "4",
+        "price": "430",
+        "description": "Lorem, ipsum dolor sit amet consectetur adipisicing laudantium, sequi alias non corporis nostrum itaque sunt inciduntquas cum suscipit deleniti quae dolorem et magni! Debitis.",
+        "id": 26
+      },
+      {
+        "title": "Tuna and Egg Briks",
+        "image": "https://www.themealdb.com/images/media/meals/2dsltq1560461468.jpg",
+        "rating": "1.5",
+        "price": "140",
+        "description": "Lorem, ipsum dolor sit amet consectetur adipisicing laudantium, sequi alias non corporis nostrum itaque sunt inciduntquas cum suscipit deleniti quae dolorem et magni! Debitis.",
+        "id": 27
+      },
+      {
+        "title": "Tuna Nicoise",
+        "image": "https://www.themealdb.com/images/media/meals/yypwwq1511304979.jpg",
+        "rating": "4.5",
+        "price": "200",
+        "description": "Lorem, ipsum dolor sit amet consectetur adipisicing laudantium, sequi alias non corporis nostrum itaque sunt inciduntquas cum suscipit deleniti quae dolorem et magni! Debitis.",
+        "id": 28
+      }
+    ]
+  }
