@@ -92,3 +92,32 @@
   font-family: inherit; 
   margin: 0px 0px 0px 15px;
 }
+
+
+@media only screen and (max-width: 769px) {
+  .card-section {
+    display: flex !important;
+    justify-content: space-around!important;
+    align-items: center!important;
+    flex-direction: column!important;
+    margin-bottom: 2rem
+}
+
+.card-1{
+  margin-bottom: 4rem;
+}
+}
+
+@media only screen and (max-width: 1025px) { 
+  .card-section {
+    display: flex !important;
+    justify-content: space-around!important;
+    align-items: center!important;
+    flex-direction: column!important;
+    margin-bottom: 2rem
+}
+
+.card-1{
+  margin-bottom: 4rem;
+} 
+}

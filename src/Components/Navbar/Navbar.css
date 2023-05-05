@@ -11,3 +11,19 @@
 .css-r6ewbb-MuiToolbar-root {
   margin-left: 85px !important;
 }
+@media only screen and (max-width: 769px) {
+  .navbar {
+    height: fit-content;
+  }
+  .css-r6ewbb-MuiToolbar-root {
+    margin-left: 1px!important;
+    
+  }
+  .css-1lvtzne{
+    margin-left: 38rem!important;
+  }
+}
+
+@media only screen and (max-width: 321px) {
+   
+}
